@@ -1,34 +1,23 @@
-// @author Rob W <http://stackoverflow.com/users/938089/rob-w>
-// Demo: var serialized_html = DOMtoString(document);
 
-function DOMtoString(document_root) {
-    var html = '',
-        node = document_root.firstChild;
-    while (node) {
-        switch (node.nodeType) {
-        case Node.ELEMENT_NODE:
-            html += node.outerHTML;
-            break;
-        case Node.TEXT_NODE:
-            html += node.nodeValue;
-            break;
-        case Node.CDATA_SECTION_NODE:
-            html += '<![CDATA[' + node.nodeValue + ']]>';
-            break;
-        case Node.COMMENT_NODE:
-            html += '<!--' + node.nodeValue + '-->';
-            break;
-        case Node.DOCUMENT_TYPE_NODE:
-            // (X)HTML documents are identified by public identifiers
-            html += "<!DOCTYPE " + node.name + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '') + (!node.publicId && node.systemId ? ' SYSTEM' : '') + (node.systemId ? ' "' + node.systemId + '"' : '') + '>\n';
-            break;
-        }
-        node = node.nextSibling;
-    }
-    return html;
+//price_inside_buybox
+//var ourPrice = document.getElementById("priceblock_ourprice").textContent;
+var priceInsideBuybox = document.getElementById("price_inside_buybox").textContent;
+var productTitle = document.getElementById("productTitle").textContent
+console.log(window.location.href)
+var urlFull = window.location.href
+var urlSplit = urlFull.split('/')
+var urlShort =""
+if (urlSplit[3] == "dp")
+{
+ urlShort=urlFull
+}
+else
+{
+    urlShort = urlSplit[0]+"//"+urlSplit[2]+"/"+urlSplit[4]+"/"+urlSplit[5];
 }
 
+console.log(urlSplit[0]+"//"+urlSplit[2]+"/"+urlSplit[4]+"/"+urlSplit[5])
 chrome.runtime.sendMessage({
     action: "getSource",
-    source: DOMtoString(document)
+    source: productTitle.trim()+priceInsideBuybox.trim()+urlShort
 });
