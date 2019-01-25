@@ -28,7 +28,11 @@ function DOMtoString(document_root) {
     return html;
 }
 
+//price_inside_buybox
+//var ourPrice = document.getElementById("priceblock_ourprice").textContent;
+var priceInsideBuybox = document.getElementById("price_inside_buybox").textContent;
+var productTitle = document.getElementById("productTitle").textContent
 chrome.runtime.sendMessage({
     action: "getSource",
-    source: DOMtoString(document)
+    source: productTitle.trim()+priceInsideBuybox.trim()
 });
