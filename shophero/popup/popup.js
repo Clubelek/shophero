@@ -5,6 +5,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 });
 function addListerners() {
 	document.addEventListener("click", (e) => {
+		console.log("au");
 		if(e.target.classList.contains("page")) {
 			var createData = {
 				type: "detached_panel",
@@ -15,7 +16,8 @@ function addListerners() {
 			var creating = browser.tabs.create(createData);
 			creating;
 		}
-	}
+	});
+
 }
 
 function onWindowLoad() {
@@ -34,4 +36,5 @@ function onWindowLoad() {
 }
 
 window.onload = onWindowLoad;
-addListeners();
+//addListeners();
+//runtime.openOptionsPage()
