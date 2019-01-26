@@ -7,14 +7,15 @@
   "description": "Zotero for buyers",
   
   "icons": {
-    "48": "icons/border-48.png"
+    "48": "icons/border-48.png",
+    "96": "icons/border-96.png"
   },
 
   "permissions": [
     "activeTab","<all_urls>"
   ],
   "browser_action": {
-    "default_icon": "icons/beasts-32.png",
+    "default_icon": "icons/border-32.png",
     "default_title": "Shophero",
     "default_popup": "popup/popup.html"
   },
