@@ -11,6 +11,11 @@ html, body {
   cursor: pointer;
 }
 
+#page-link {
+	text-decoration: none;
+	color: black;
+}
+
 .elt:hover {
   background-color: #CFF2F2;
 }
