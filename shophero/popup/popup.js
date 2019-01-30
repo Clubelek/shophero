@@ -21,17 +21,6 @@ function onWindowLoad() {
 		}
 	});
 
-	// BUTTON
-	document.querySelector('#page').addEventListener("click", (e) => {
-		var createData = {
-			type: "detached_panel",
-			url: "page/page.html",
-			width: 250,
-			height: 100
-		};
-		var creating = browser.tabs.create(createData);
-		creating;
-	});
 }
 
 window.onload = onWindowLoad;
