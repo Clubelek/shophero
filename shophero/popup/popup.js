@@ -4,19 +4,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	}
 });
 function addListerners() {
-	document.addEventListener("click", (e) => {
-		console.log("au");
-		if(e.target.classList.contains("page")) {
-			var createData = {
-				type: "detached_panel",
-				url: "page/page.html",
-				width: 250,
-				height: 100
-			};
-			var creating = browser.tabs.create(createData);
-			creating;
-		}
-	});
+	const button = document.querySelector('button');
 
 }
 
@@ -33,6 +21,17 @@ function onWindowLoad() {
 		}
 	});
 
+	// BUTTON
+	document.querySelector('#page').addEventListener("click", (e) => {
+		var createData = {
+			type: "detached_panel",
+			url: "page/page.html",
+			width: 250,
+			height: 100
+		};
+		var creating = browser.tabs.create(createData);
+		creating;
+	});
 }
 
 window.onload = onWindowLoad;
